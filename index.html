@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tyler Gillespie Football Development Tracker Final</title>
+  <title>Player Performance Tracker</title>
 
-  <meta name="application-name" content="Tyler Performance Tracker" />
-  <meta name="apple-mobile-web-app-title" content="Tyler Tracker" />
+  <meta name="application-name" content="Performance Tracker" />
+  <meta name="apple-mobile-web-app-title" content="Performance Tracker" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#d71920" />
@@ -728,11 +728,11 @@
 <body>
   <div class="app">
     <header>
-      <h1 id="playerNameDisplay">Tyler Gillespie</h1>
+      <h1 id="playerNameDisplay">Player Name</h1>
       <div class="motto">Measure. Improve. Own it.</div>
       <div class="sub">Sunday night review. Five minutes. Honest scores.</div>
       <div class="topbar">
-        <input id="playerName" value="Tyler Gillespie" aria-label="Player name" />
+        <input id="playerName" value="Player Name" aria-label="Player name" />
         <input id="weekLabel" value="Week 1" aria-label="Week label" />
         <button class="btn-red" onclick="saveWeek()">Save Score</button>
         <button class="btn-dark" onclick="undoLastSave()">Undo Last Save</button>
@@ -754,8 +754,8 @@
       </div>
       <div class="metric">
         <div class="label">Weekly Trust Score</div>
-        <div class="small-value" id="trustTotal">3/5</div>
-        <span class="rag" id="trustRag">Amber</span>
+        <div class="small-value" id="trustTotal">0/5</div>
+        <span class="rag red" id="trustRag">Red</span>
       </div>
       <div class="metric">
         <div class="label">Football Capability</div>
@@ -860,16 +860,16 @@ const state = {
       key: "football", title: "Football Capability", colour: "footy", weight: 40,
       subtitle: "Game impact, football traits, role execution and reliability.",
       items: [
-        ["High Level Football Traits", "Point of difference", "Specific skill or combination of skills that can separate performance.", 4],
-        ["Composure & Coordination", "Clean under pressure", "Clean execution under pressure, composed movement and controlled decision making.", 3],
-        ["Flexibility", "Role adaptability", "Played varied roles and adjusted to different game situations.", 3],
-        ["Competitiveness", "Contest standard", "Attacked contests, hated losing and stayed involved.", 4],
-        ["Role Execution", "Team-first reliability", "Played the role asked, even when it was not preferred.", 3],
-        ["Leadership / Communication / Teammate", "Make others better", "Talked, directed, encouraged, supported teammates and brought others into the game.", 3],
-        ["Football IQ / Role Understanding", "Read the game", "Understood positioning, spacing, timing and team structure.", 3],
-        ["Skill Execution Under Pressure", "Clean when it matters", "Used the ball well when rushed, tackled or fatigued.", 3],
-        ["Work Rate / Repeat Efforts", "Go again", "Kept working after the first contest and late in quarters.", 4],
-        ["Decision Making", "Right option", "Chose the best team option instead of forcing play.", 3]
+        ["High Level Football Traits", "Point of difference", "Specific skill or combination of skills that can separate performance.", 0],
+        ["Composure & Coordination", "Clean under pressure", "Clean execution under pressure, composed movement and controlled decision making.", 0],
+        ["Flexibility", "Role adaptability", "Played varied roles and adjusted to different game situations.", 0],
+        ["Competitiveness", "Contest standard", "Attacked contests, hated losing and stayed involved.", 0],
+        ["Role Execution", "Team-first reliability", "Played the role asked, even when it was not preferred.", 0],
+        ["Leadership / Communication / Teammate", "Make others better", "Talked, directed, encouraged, supported teammates and brought others into the game.", 0],
+        ["Football IQ / Role Understanding", "Read the game", "Understood positioning, spacing, timing and team structure.", 0],
+        ["Skill Execution Under Pressure", "Clean when it matters", "Used the ball well when rushed, tackled or fatigued.", 0],
+        ["Work Rate / Repeat Efforts", "Go again", "Kept working after the first contest and late in quarters.", 0],
+        ["Decision Making", "Right option", "Chose the best team option instead of forcing play.", 0]
       ],
       goal: "Show a point of difference, play the role and compete every contest."
     },
@@ -877,11 +877,11 @@ const state = {
       key: "athletic", title: "Athletic Development", colour: "athletic", weight: 20,
       subtitle: "Training habits, body preparation and physical development.",
       items: [
-        ["Aerobic Capacity", "Explode and repeat", "Exploded, repeated efforts, maintained high work rate and sustained intensity.", 4],
-        ["Speed / Agility", "Move and react", "Changed direction, accelerated and closed space quickly.", 4],
-        ["Body Composition", "Strength and movement", "Strength, mobility, flexibility, leap for height, movement quality and durability.", 3],
-        ["Physical Preparation Habits", "Stack the work", "Gym, mobility, recovery, nutrition and consistency.", 3],
-        ["Recovery Habits", "Prepare again", "Managed sleep, soreness, mobility and recovery properly.", 3]
+        ["Aerobic Capacity", "Explode and repeat", "Exploded, repeated efforts, maintained high work rate and sustained intensity.", 0],
+        ["Speed / Agility", "Move and react", "Changed direction, accelerated and closed space quickly.", 0],
+        ["Body Composition", "Strength and movement", "Strength, mobility, flexibility, leap for height, movement quality and durability.", 0],
+        ["Physical Preparation Habits", "Stack the work", "Gym, mobility, recovery, nutrition and consistency.", 0],
+        ["Recovery Habits", "Prepare again", "Managed sleep, soreness, mobility and recovery properly.", 0]
       ],
       goal: "Explode, repeat and build the body to handle higher football demands."
     },
@@ -889,15 +889,15 @@ const state = {
       key: "emotional", title: "Mindset & Habits", colour: "emotional", weight: 40,
       subtitle: "The behaviours that determine trust, consistency and coachability.",
       items: [
-        ["Growth Mindset", "Coachability", "Learn, adapt, take feedback and improve.", 3],
-        ["Response to Adversity", "Reset fast", "Responded positively to setbacks, mistakes and challenges.", 3],
-        ["Body Language", "Visible standard", "Stayed composed, engaged and positive under pressure.", 3],
-        ["Competitiveness", "Emotional edge", "Competed regardless of circumstance, role or frustration without losing control.", 4],
-        ["Accountability", "Own it", "Owned mistakes, effort and standards without blaming others.", 3],
-        ["Physical Preparation Habits", "Professional routine", "Gym, sleep, nutrition, mobility, preparation and recovery discipline.", 3],
-        ["Football IQ / Role Understanding", "Learn the system", "Understood role, positioning and team system, then adjusted behaviour accordingly.", 3],
-        ["Team-first Behaviour", "Trusted teammate", "Supported teammates, accepted role and helped the group function better.", 3],
-        ["Weekly Trust Score", "Close-game trust", "If I was coaching me this week, how much would I trust me in a close game?", 3]
+        ["Growth Mindset", "Coachability", "Learn, adapt, take feedback and improve.", 0],
+        ["Response to Adversity", "Reset fast", "Responded positively to setbacks, mistakes and challenges.", 0],
+        ["Body Language", "Visible standard", "Stayed composed, engaged and positive under pressure.", 0],
+        ["Competitiveness", "Emotional edge", "Competed regardless of circumstance, role or frustration without losing control.", 0],
+        ["Accountability", "Own it", "Owned mistakes, effort and standards without blaming others.", 0],
+        ["Physical Preparation Habits", "Professional routine", "Gym, sleep, nutrition, mobility, preparation and recovery discipline.", 0],
+        ["Football IQ / Role Understanding", "Learn the system", "Understood role, positioning and team system, then adjusted behaviour accordingly.", 0],
+        ["Team-first Behaviour", "Trusted teammate", "Supported teammates, accepted role and helped the group function better.", 0],
+        ["Weekly Trust Score", "Close-game trust", "If I was coaching me this week, how much would I trust me in a close game?", 0]
       ],
       goal: "Respond better than the moment demands and build trust through habits."
     }
@@ -1034,7 +1034,7 @@ function updateTotals() {
 
   const saved = getSavedScores();
   const trustIndex = state.categories.find(c => c.key === "emotional").items.findIndex(i => i[0] === "Weekly Trust Score");
-  const trustScore = Number(saved[`emotional-${trustIndex}`] ?? 3);
+  const trustScore = Number(saved[`emotional-${trustIndex}`] ?? 0);
   document.getElementById("trustTotal").textContent = `${trustScore}/5`;
   const trustRag = ragClassPct(trustScore * 20);
   const trustEl = document.getElementById("trustRag");
@@ -1092,7 +1092,7 @@ function saveWeek() {
     football: totals.football.pct,
     athletic: totals.athletic.pct,
     emotional: totals.emotional.pct,
-    trustScore: Number(getSavedScores()[`emotional-${trustIndex}`] ?? 3),
+    trustScore: Number(getSavedScores()[`emotional-${trustIndex}`] ?? 0),
     bestMoment: document.getElementById("bestMoment").value,
     hardMoment: document.getElementById("hardMoment").value,
     fixNext: document.getElementById("fixNext").value,
@@ -1128,7 +1128,7 @@ function undoLastSave() {
 
 function exportData() {
   const data = {
-    app: "Tyler Football Development Tracker",
+    app: "Football Development Tracker",
     version: "mobile-portable-v1",
     exportedAt: new Date().toISOString(),
     player: document.getElementById("playerName").value,
@@ -1153,7 +1153,7 @@ function exportData() {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  const safePlayer = (data.player || "tyler").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const safePlayer = (data.player || "player").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const stamp = new Date().toISOString().slice(0, 10);
   a.href = url;
   a.download = `${safePlayer || "player"}-football-tracker-backup-${stamp}.json`;
